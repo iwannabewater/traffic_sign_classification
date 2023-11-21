@@ -1,0 +1,217 @@
+Number of training samples = 32531
+Number of validation samples = 8133
+The model has 15,063,891 trainable parameters
+Alexnet(
+  (features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (2): ReLU(inplace=True)
+    (3): Conv2d(64, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (5): ReLU(inplace=True)
+    (6): Conv2d(192, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (7): ReLU(inplace=True)
+    (8): Conv2d(384, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (9): ReLU(inplace=True)
+    (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (12): ReLU(inplace=True)
+  )
+  (classifier): Sequential(
+    (0): Dropout(p=0.5, inplace=False)
+    (1): Linear(in_features=12544, out_features=1000, bias=True)
+    (2): ReLU(inplace=True)
+    (3): Dropout(p=0.5, inplace=False)
+    (4): Linear(in_features=1000, out_features=256, bias=True)
+    (5): ReLU(inplace=True)
+    (6): Linear(in_features=256, out_features=43, bias=True)
+  )
+)
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 64, 56, 56]           1,792
+         MaxPool2d-2           [-1, 64, 28, 28]               0
+              ReLU-3           [-1, 64, 28, 28]               0
+            Conv2d-4          [-1, 192, 28, 28]         110,784
+         MaxPool2d-5          [-1, 192, 14, 14]               0
+              ReLU-6          [-1, 192, 14, 14]               0
+            Conv2d-7          [-1, 384, 14, 14]         663,936
+              ReLU-8          [-1, 384, 14, 14]               0
+            Conv2d-9          [-1, 256, 14, 14]         884,992
+             ReLU-10          [-1, 256, 14, 14]               0
+           Conv2d-11          [-1, 256, 14, 14]         590,080
+        MaxPool2d-12            [-1, 256, 7, 7]               0
+             ReLU-13            [-1, 256, 7, 7]               0
+          Dropout-14                [-1, 12544]               0
+           Linear-15                 [-1, 1000]      12,545,000
+             ReLU-16                 [-1, 1000]               0
+          Dropout-17                 [-1, 1000]               0
+           Linear-18                  [-1, 256]         256,256
+             ReLU-19                  [-1, 256]               0
+           Linear-20                   [-1, 43]          11,051
+================================================================
+Total params: 15,063,891
+Trainable params: 15,063,891
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.14
+Forward/backward pass size (MB): 6.63
+Params size (MB): 57.46
+Estimated Total Size (MB): 64.24
+----------------------------------------------------------------
+None
+Model's state dict:
+features.0.weight 	 torch.Size([64, 3, 3, 3])
+features.0.bias 	 torch.Size([64])
+features.3.weight 	 torch.Size([192, 64, 3, 3])
+features.3.bias 	 torch.Size([192])
+features.6.weight 	 torch.Size([384, 192, 3, 3])
+features.6.bias 	 torch.Size([384])
+features.8.weight 	 torch.Size([256, 384, 3, 3])
+features.8.bias 	 torch.Size([256])
+features.10.weight 	 torch.Size([256, 256, 3, 3])
+features.10.bias 	 torch.Size([256])
+classifier.1.weight 	 torch.Size([1000, 12544])
+classifier.1.bias 	 torch.Size([1000])
+classifier.4.weight 	 torch.Size([256, 1000])
+classifier.4.bias 	 torch.Size([256])
+classifier.6.weight 	 torch.Size([43, 256])
+classifier.6.bias 	 torch.Size([43])
+
+Optimizer details:
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+
+Epoch-0: 
+Training: Loss = 3.4721, Accuracy = 0.0763, Time = 186.77 seconds
+Validation: Loss = 3.3136, Accuracy = 0.0923, Time = 47.18 seconds
+
+Epoch-1: 
+Training: Loss = 2.7119, Accuracy = 0.2333, Time = 164.67 seconds
+Validation: Loss = 1.5849, Accuracy = 0.4976, Time = 42.59 seconds
+
+Epoch-2: 
+Training: Loss = 0.9947, Accuracy = 0.6800, Time = 176.24 seconds
+Validation: Loss = 0.5567, Accuracy = 0.8251, Time = 46.93 seconds
+
+Epoch-3: 
+Training: Loss = 0.4735, Accuracy = 0.8463, Time = 178.24 seconds
+Validation: Loss = 0.2235, Accuracy = 0.9346, Time = 43.30 seconds
+
+Epoch-4: 
+Training: Loss = 0.2543, Accuracy = 0.9188, Time = 167.93 seconds
+Validation: Loss = 0.1245, Accuracy = 0.9635, Time = 39.26 seconds
+
+Epoch-5: 
+Training: Loss = 0.1672, Accuracy = 0.9468, Time = 161.95 seconds
+Validation: Loss = 0.0782, Accuracy = 0.9775, Time = 38.55 seconds
+
+Epoch-6: 
+Training: Loss = 0.1216, Accuracy = 0.9608, Time = 173.15 seconds
+Validation: Loss = 0.0616, Accuracy = 0.9823, Time = 43.05 seconds
+
+Epoch-7: 
+Training: Loss = 0.0965, Accuracy = 0.9696, Time = 180.57 seconds
+Validation: Loss = 0.0425, Accuracy = 0.9887, Time = 40.66 seconds
+
+Epoch-8: 
+Training: Loss = 0.0821, Accuracy = 0.9728, Time = 162.27 seconds
+Validation: Loss = 0.0455, Accuracy = 0.9873, Time = 39.80 seconds
+
+Epoch-9: 
+Training: Loss = 0.0674, Accuracy = 0.9782, Time = 161.70 seconds
+Validation: Loss = 0.0377, Accuracy = 0.9908, Time = 42.73 seconds
+
+Epoch-10: 
+Training: Loss = 0.0542, Accuracy = 0.9827, Time = 165.33 seconds
+Validation: Loss = 0.0296, Accuracy = 0.9925, Time = 42.52 seconds
+
+Epoch-11: 
+Training: Loss = 0.0552, Accuracy = 0.9825, Time = 164.83 seconds
+Validation: Loss = 0.0397, Accuracy = 0.9897, Time = 39.57 seconds
+
+Epoch-12: 
+Training: Loss = 0.0474, Accuracy = 0.9852, Time = 160.67 seconds
+Validation: Loss = 0.0352, Accuracy = 0.9911, Time = 39.05 seconds
+
+Epoch-13: 
+Training: Loss = 0.0401, Accuracy = 0.9877, Time = 174.54 seconds
+Validation: Loss = 0.0277, Accuracy = 0.9940, Time = 40.49 seconds
+
+Epoch-14: 
+Training: Loss = 0.0363, Accuracy = 0.9886, Time = 159.14 seconds
+Validation: Loss = 0.0300, Accuracy = 0.9926, Time = 38.18 seconds
+
+Epoch-15: 
+Training: Loss = 0.0327, Accuracy = 0.9892, Time = 162.43 seconds
+Validation: Loss = 0.0182, Accuracy = 0.9965, Time = 41.11 seconds
+
+Epoch-16: 
+Training: Loss = 0.0329, Accuracy = 0.9895, Time = 166.64 seconds
+Validation: Loss = 0.0225, Accuracy = 0.9946, Time = 40.15 seconds
+
+Epoch-17: 
+Training: Loss = 0.0337, Accuracy = 0.9896, Time = 163.90 seconds
+Validation: Loss = 0.0216, Accuracy = 0.9948, Time = 41.61 seconds
+
+Epoch-18: 
+Training: Loss = 0.0281, Accuracy = 0.9908, Time = 169.29 seconds
+Validation: Loss = 0.0220, Accuracy = 0.9951, Time = 42.23 seconds
+
+Epoch-19: 
+Training: Loss = 0.0218, Accuracy = 0.9936, Time = 167.51 seconds
+Validation: Loss = 0.0173, Accuracy = 0.9952, Time = 42.03 seconds
+
+Epoch-20: 
+Training: Loss = 0.0287, Accuracy = 0.9910, Time = 173.49 seconds
+Validation: Loss = 0.0297, Accuracy = 0.9935, Time = 41.97 seconds
+
+Epoch-21: 
+Training: Loss = 0.0259, Accuracy = 0.9923, Time = 165.51 seconds
+Validation: Loss = 0.0308, Accuracy = 0.9930, Time = 43.33 seconds
+
+Epoch-22: 
+Training: Loss = 0.0238, Accuracy = 0.9923, Time = 170.94 seconds
+Validation: Loss = 0.0199, Accuracy = 0.9955, Time = 41.29 seconds
+
+Epoch-23: 
+Training: Loss = 0.0269, Accuracy = 0.9908, Time = 164.95 seconds
+Validation: Loss = 0.0187, Accuracy = 0.9955, Time = 41.15 seconds
+
+Epoch-24: 
+Training: Loss = 0.0502, Accuracy = 0.9852, Time = 166.85 seconds
+Validation: Loss = 0.0203, Accuracy = 0.9947, Time = 42.73 seconds
+
+Epoch-25: 
+Training: Loss = 0.0233, Accuracy = 0.9929, Time = 168.61 seconds
+Validation: Loss = 0.0191, Accuracy = 0.9961, Time = 42.53 seconds
+
+Epoch-26: 
+Training: Loss = 0.0203, Accuracy = 0.9940, Time = 169.00 seconds
+Validation: Loss = 0.0193, Accuracy = 0.9961, Time = 41.62 seconds
+
+Epoch-27: 
+Training: Loss = 0.0148, Accuracy = 0.9956, Time = 167.78 seconds
+Validation: Loss = 0.0179, Accuracy = 0.9974, Time = 41.64 seconds
+
+Epoch-28: 
+Training: Loss = 0.0180, Accuracy = 0.9942, Time = 165.42 seconds
+Validation: Loss = 0.0167, Accuracy = 0.9969, Time = 40.77 seconds
+
+Epoch-29: 
+Training: Loss = 0.0194, Accuracy = 0.9941, Time = 170.46 seconds
+Validation: Loss = 0.0144, Accuracy = 0.9972, Time = 41.50 seconds
+
+Model saved at ../checkpoints/tsr_alexnet_30epochs.pth
